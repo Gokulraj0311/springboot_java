@@ -1,0 +1,35 @@
+package generics;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class GenericsRunner {
+	static <X> X doublevalue(X value) {
+		return value;
+	}
+
+	static <X extends List> void duplicate(X list) {
+		list.addAll(list);
+	}
+
+	public static void main(String[] args) {
+		String value1 = doublevalue(new String());
+		Integer number1 = doublevalue(Integer.valueOf(5));
+		ArrayList list1 = doublevalue(new ArrayList());
+
+		ArrayList<Integer> numbers = new ArrayList<>(List.of(1, 2, 3));
+		duplicate(numbers);
+		System.out.println(numbers);
+		MyCustomList<Long> list = new MyCustomList<>();
+		list.addElement(5l);
+		list.addElement(6l);
+		Long value = list.get(0);
+		System.out.println(value);
+		MyCustomList<Integer> list2 = new MyCustomList<>();
+		list2.addElement(Integer.valueOf(5));
+		list2.addElement(Integer.valueOf(6));
+		Integer num = list2.get(0);
+		System.out.print(num);
+	}
+
+}
