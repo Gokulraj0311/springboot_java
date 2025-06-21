@@ -22,7 +22,7 @@ public class CloudVendorAPIService {
        this.cloudVendor=cloudVendor;
        return "Updation successfull";
    }
-
+ 
    @DeleteMapping("{vendorId}")
     public String deletecloudvendor(@PathVariable String vendorId){
        this.cloudVendor=null;
